@@ -1,4 +1,16 @@
 # depslib dependency file v1.0
-1341074716 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\main.cpp
+1341452666 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\main.cpp
 	<iostream>
+
+1341420937 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\entry.cpp
+	"../include/Entry.h"
+
+1341074887 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\entry.h
+	<vector>
+
+1341454402 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\printer.cpp
+	"../include/Printer.h"
+	<iostream>
+
+1341454741 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\printer.h
 

@@ -5,7 +5,7 @@ Entry::Entry(int value, int row, int column, int block)
     row(row),
     column(column),
     block(block),
-    options(std::vector<int>())
+    options(0)
 {
     //ctor
 }
