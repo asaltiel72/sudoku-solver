@@ -5,7 +5,7 @@
 class Entry
 {
     public:
-        Entry(int value, int row, int column, int block);
+        Entry(int value, int row, int column);
         virtual ~Entry();
         Entry(const Entry& other);
         Entry& operator=(const Entry& other);
@@ -14,7 +14,6 @@ class Entry
         int value;
         int row;
         int column;
-        int block;
         std::vector<int> options;
 };
 

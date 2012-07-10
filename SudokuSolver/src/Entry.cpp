@@ -1,10 +1,9 @@
 #include "../include/Entry.h"
 
-Entry::Entry(int value, int row, int column, int block)
+Entry::Entry(int value, int row, int column)
     : value(value),
     row(row),
     column(column),
-    block(block),
     options(0)
 {
     //ctor
@@ -19,7 +18,6 @@ Entry::Entry(const Entry& other)
     : value(other.value),
     row(other.row),
     column(other.column),
-    block(other.block),
     options(other.options)
 {
     //copy ctor
