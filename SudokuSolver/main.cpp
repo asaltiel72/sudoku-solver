@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    Printer puzzle = Printer();
+    Printer puzzle;
     puzzle.printSudoku();
 	return 0;
 }
