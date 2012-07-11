@@ -11,7 +11,6 @@ Board::Board(std::string filename) :
     solved(false)
 {
     //ctor
-    //spot = new Entry[9][9];
 }
 
 Board::~Board()
@@ -19,9 +18,9 @@ Board::~Board()
     //dtor
 }
 
-bool Board::initializeBoard(std::string filename)
+bool Board::initializeBoard()
 {
-    fstream filestr (filename.c_str(), fstream::in | fstream::out);
+    fstream filestr (orig_file.c_str(), fstream::in | fstream::out);
     string line;
     vector<int> fline;
     stringstream ss;
@@ -32,7 +31,7 @@ bool Board::initializeBoard(std::string filename)
         cout << line << endl;
         if (line != "")
         {
-            for(int q = 1; i < 10; i++)
+            for(int i = 0; i < 9; i++)
             {
                 ss << line.substr(0,1);
                 ss >> num;
@@ -50,6 +49,8 @@ bool Board::initializeBoard(std::string filename)
     {
         cout << "Vector at " << j << " :" << fline.at(j) << endl;
     }
+
+
 
     return true;
 }

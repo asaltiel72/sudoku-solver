@@ -12,7 +12,7 @@ int main(){
     Printer puzzle;
     puzzle.printSudoku();
     Board sudoku("board.txt");
-    sudoku.initializeBoard("board.txt");
+    sudoku.initializeBoard();
 	return 0;
 }
 

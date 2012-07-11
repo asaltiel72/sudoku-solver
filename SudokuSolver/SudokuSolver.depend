@@ -31,3 +31,38 @@
 	"Entry.h"
 	<string>
 
+1342033441 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\entry.cpp
+	"../include/Entry.h"
+
+1342033441 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\entry.h
+	<vector>
+
+1342033441 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\printer.cpp
+	"../include/Printer.h"
+	<iostream>
+
+1342033441 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\printer.h
+
+1342034150 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<sstream>
+	"include/Printer.h"
+	"include/Board.h"
+
+1342035524 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\board.h
+	"Entry.h"
+	<string>
+	<vector>
+	<memory>
+
+1342035237 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\board.cpp
+	"../include/Board.h"
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<iostream>
+
