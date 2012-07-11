@@ -8,18 +8,18 @@ class Board
 {
     public:
         Board();
-        Board(string filename);
+        Board(std::string filename);
         virtual ~Board();
         bool initializeBoard();
 
-        Entry& getSpot(int x, int y) { return spot[y][x]; };
-        string& getOrigFile() { return orig_file; }
+//        Entry& getSpot(int x, int y) { return spot[y][x]; };
+        std::string& getOrigFile() { return orig_file; }
         bool isSolved() { return solved; }
 
     protected:
     private:
-        Entry spot[][];
-        string orig_file;
+//        Entry spot[][];
+        std::string orig_file;
         bool solved;
 };
 
