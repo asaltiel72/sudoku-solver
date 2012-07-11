@@ -1,11 +1,16 @@
 # depslib dependency file v1.0
-1341452666 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\main.cpp
+1342032524 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\main.cpp
 	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<sstream>
+	"include/Printer.h"
 
-1341420937 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\entry.cpp
+1342028343 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\entry.cpp
 	"../include/Entry.h"
 
-1341074887 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\entry.h
+1341954523 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\entry.h
 	<vector>
 
 1341454402 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\printer.cpp
@@ -13,4 +18,16 @@
 	<iostream>
 
 1341454741 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\printer.h
+
+1342033224 source:c:\users\sroca\documents\github\sudoku-solver\sudokusolver\src\board.cpp
+	"../include/Board.h"
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<iostream>
+
+1342033150 c:\users\sroca\documents\github\sudoku-solver\sudokusolver\include\board.h
+	"Entry.h"
+	<string>
 

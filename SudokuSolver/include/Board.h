@@ -10,7 +10,7 @@ class Board
         Board();
         Board(std::string filename);
         virtual ~Board();
-        bool initializeBoard();
+        bool initializeBoard(std::string filename);
 
 //        Entry& getSpot(int x, int y) { return spot[y][x]; };
         std::string& getOrigFile() { return orig_file; }
