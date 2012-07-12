@@ -18,6 +18,7 @@ class Board
 
         std::string& getOrigFile() { return orig_file; }
         bool isSolved() { return solved; }
+        std::vector<Entry> getBoard() { return cells; }
 
     protected:
     private:

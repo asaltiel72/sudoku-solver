@@ -10,9 +10,9 @@ using namespace std;
 
 int main(){
     Printer puzzle;
-    puzzle.printSudoku();
     Board sudoku("board.txt");
     sudoku.initializeBoard();
+    puzzle.printSudoku(&sudoku);
 	return 0;
 }
 

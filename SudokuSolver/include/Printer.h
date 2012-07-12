@@ -1,13 +1,15 @@
 #ifndef PRINTER_H
 #define PRINTER_H
 
+#include "Board.h";
+
 
 class Printer
 {
     public:
         Printer();
         virtual ~Printer();
-        void printSudoku();
+        void printSudoku(Board* pboard);
     protected:
     private:
         void printTop();

@@ -37,13 +37,14 @@
 1342116868 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\entry.h
 	<vector>
 
-1342033441 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\printer.cpp
+1342127588 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\printer.cpp
 	"../include/Printer.h"
 	<iostream>
 
-1342033441 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\printer.h
+1342125697 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\printer.h
+	"Board.h"
 
-1342034150 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\main.cpp
+1342125671 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -52,7 +53,7 @@
 	"include/Printer.h"
 	"include/Board.h"
 
-1342119860 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\board.h
+1342126271 c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\include\board.h
 	"Entry.h"
 	<string>
 	<vector>
@@ -60,7 +61,7 @@
 	<math.h>
 	<algorithm>
 
-1342121509 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\board.cpp
+1342121723 source:c:\users\alex\desktop\sudoku_solver\sudoku-solver\sudokusolver\src\board.cpp
 	"../include/Board.h"
 	"../include/Entry.h"
 	<string>

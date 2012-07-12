@@ -1,6 +1,9 @@
 #include "../include/Printer.h"
 #include <iostream>
 
+using std::cout;
+using std::endl;
+
 Printer::Printer()
 {
     //ctor
@@ -79,8 +82,9 @@ void Printer::printBottom()
     std::cout << BOTTOM_RIGHT_CORNER << std::endl;
 }
 
-void Printer::printSudoku()
+void Printer::printSudoku(Board* pboard)
 {
+    /*
     printTop();
 
     // Print a row of numbers
@@ -152,6 +156,36 @@ void Printer::printSudoku()
     << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
     << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
 	<< VERTICAL_DOUBLE << std::endl;
+
+	printBottom();
+	*/
+
+	std::vector<Entry> cells = pboard->getBoard();
+
+	printTop();
+
+	for(int i = 0; i < 3; i++)
+	{
+	    for(int j = 0; j < 3; j++)
+	    {
+            cout << VERTICAL_DOUBLE;
+            for(int n = 0; n < 8; n++){
+                cout << cells[(3*i+j)*9 + n].getValue();
+                if((n + 1) % 3 != 0)
+                    cout << VERTICAL_SINGLE;
+                else
+                    cout << VERTICAL_DOUBLE;
+            }
+            cout << cells[(3*i+j)*9 + 8].getValue() << VERTICAL_DOUBLE << endl;
+            if(j == 2)
+            {
+                if(i != 2)
+                    printMiddle(END_OF_BLOCK);
+            }
+            else
+                printMiddle(!END_OF_BLOCK);
+	    }
+	}
 
 	printBottom();
 }
