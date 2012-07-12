@@ -1,14 +1,19 @@
 #include "../include/Board.h"
+#include "../include/Entry.h"
 #include <string>
 #include <vector>
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <typeinfo>
 
 using namespace std;
 Board::Board(std::string filename) :
     orig_file(filename),
-    solved(false)
+    solved(false),
+    rows(9),
+    columns(9),
+    blocks(9)
 {
     //ctor
 }
@@ -45,12 +50,27 @@ bool Board::initializeBoard()
             }
         }
     }
-    for(int j= 0; j < fline.size(); j++)
+
+    int tmpn = 0;
+
+    for(int r = 0; r < 9; r++)
     {
-        cout << "Vector at " << j << " :" << fline.at(j) << endl;
+        for(int c = 0; c < 9; c++)
+        {
+            int blockNum = r - (r%3) + (double)(c/3);
+            Entry tmp(fline[c+r*9], r, c, blockNum);
+            cells.push_back(tmp);
+        }
     }
 
+    for_each(cells.begin(), cells.end(), [&](Entry& spot){
+        rows[spot.getRow()].push_back(spot);
+        columns[spot.getColumn()].push_back(spot);
+        blocks[spot.getBlock()].push_back(spot);
+    });
 
+    //Stopped here
+    cout << "All vectors and reference vectors created!!" << endl;
 
     return true;
 }

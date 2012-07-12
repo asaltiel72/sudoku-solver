@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <math.h>
+#include <algorithm>
 
 class Board
 {
