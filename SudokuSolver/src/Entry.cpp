@@ -10,6 +10,7 @@ Entry::Entry(int pvalue, int prow, int pcolumn, int pblock)
     //ctor
 }
 
+/** Default Destructor */
 Entry::~Entry()
 {
     //dtor

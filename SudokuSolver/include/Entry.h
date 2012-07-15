@@ -9,12 +9,10 @@ class Entry
         virtual ~Entry();
         Entry(const Entry& other);
         Entry& operator=(const Entry& other);
-
         const int getRow() { return row; }
         const int getValue() { return value; }
         const int getColumn() { return column; }
         const int getBlock() { return block; }
-
     protected:
     private:
         int value;

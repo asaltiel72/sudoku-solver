@@ -4,16 +4,22 @@
 using std::cout;
 using std::endl;
 
+/** Default Constructor */
 Printer::Printer()
 {
     //ctor
 }
 
+/** Default Destructor */
 Printer::~Printer()
 {
     //dtor
 }
 
+/**
+ * Print the top first line of the board
+ * using ascii characters.
+ */
 void Printer::printTop()
 {
     // Print the top of the board
@@ -31,9 +37,15 @@ void Printer::printTop()
     std::cout << TOP_RIGHT_CORNER << std::endl;
 }
 
-void Printer::printMiddle(bool endOfBlock)
+/**
+ * Print a line bookending lines of numbers and pass in
+ * whether or not the line is the end of a 3x3
+ * block of numbers.
+ * @param endOfBlock - true or false (see above)
+ */
+void Printer::printMiddle(bool pendOfBlock)
 {
-    if (endOfBlock)
+    if (pendOfBlock)
     {
         std::cout << LEFT_EDGE_DOUBLE;
         for (int i = 0; i < END_OF_BOARD; i++)
@@ -65,6 +77,10 @@ void Printer::printMiddle(bool endOfBlock)
     }
 }
 
+/**
+ * Print the bottom line of the board
+ * using ascii characters.
+ */
 void Printer::printBottom()
 {
     // Print the bottom of the board
@@ -82,84 +98,12 @@ void Printer::printBottom()
     std::cout << BOTTOM_RIGHT_CORNER << std::endl;
 }
 
+/**
+ * Print the entire Sudoku board from a Board object.
+ * @param pboard - a pointer to a Board object
+ */
 void Printer::printSudoku(Board* pboard)
 {
-    /*
-    printTop();
-
-    // Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-    printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printMiddle(!END_OF_BLOCK);
-
-	// Print a row of numbers
-    std::cout << VERTICAL_DOUBLE << 1 << VERTICAL_SINGLE << 2 << VERTICAL_SINGLE << 3
-    << VERTICAL_DOUBLE << 4 << VERTICAL_SINGLE << 5 << VERTICAL_SINGLE << 6
-    << VERTICAL_DOUBLE << 7 << VERTICAL_SINGLE << 8 << VERTICAL_SINGLE << 9
-	<< VERTICAL_DOUBLE << std::endl;
-
-	printBottom();
-	*/
-
 	std::vector<Entry> cells = pboard->getBoard();
 
 	printTop();

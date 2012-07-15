@@ -9,12 +9,12 @@ class Printer
     public:
         Printer();
         virtual ~Printer();
-        void printSudoku(Board* pboard);
+        static void printSudoku(Board* pboard);
     protected:
     private:
-        void printTop();
-        void printMiddle(bool endOfBlock);
-        void printBottom();
+        static void printTop();
+        static void printMiddle(bool endOfBlock);
+        static void printBottom();
         static const int END_OF_BOARD = 3;
         static const bool END_OF_BLOCK = 1;
         static const char TOP_LEFT_CORNER = 201;

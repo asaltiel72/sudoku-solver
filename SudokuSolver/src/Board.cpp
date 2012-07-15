@@ -18,6 +18,7 @@ Board::Board(std::string filename) :
     //ctor
 }
 
+/** Default Destructor */
 Board::~Board()
 {
     //dtor
@@ -50,8 +51,6 @@ bool Board::initializeBoard()
             }
         }
     }
-
-    int tmpn = 0;
 
     for(int r = 0; r < 9; r++)
     {
