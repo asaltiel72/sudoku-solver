@@ -26,9 +26,9 @@ void Printer::printTop()
     std::cout << TOP_LEFT_CORNER;
     for (int i = 0; i < END_OF_BOARD; i++)
     {
-        std::cout << HORIZONTAL_DOUBLE
-        << T_SINGLE << HORIZONTAL_DOUBLE
-        << T_SINGLE << HORIZONTAL_DOUBLE;
+        std::cout << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE
+        << T_SINGLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE
+        << T_SINGLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE;
         if (i < END_OF_BOARD - 1)
         {
            std::cout << T_DOUBLE;
@@ -50,9 +50,9 @@ void Printer::printMiddle(bool pendOfBlock)
         std::cout << LEFT_EDGE_DOUBLE;
         for (int i = 0; i < END_OF_BOARD; i++)
         {
-            std::cout << HORIZONTAL_DOUBLE << CROSS_HDVS
-            << HORIZONTAL_DOUBLE << CROSS_HDVS
-            << HORIZONTAL_DOUBLE;
+            std::cout << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << CROSS_HDVS
+            << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << CROSS_HDVS
+            << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE;
             if (i < END_OF_BOARD - 1)
             {
                 std::cout << CROSS_DOUBLE;
@@ -65,9 +65,9 @@ void Printer::printMiddle(bool pendOfBlock)
         std::cout << LEFT_EDGE_SINGLE;
         for (int i = 0; i < END_OF_BOARD; i++)
         {
-            std::cout << HORIZONTAL_SINGLE << CROSS_SINGLE
-            << HORIZONTAL_SINGLE << CROSS_SINGLE
-            << HORIZONTAL_SINGLE;
+            std::cout << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE << CROSS_SINGLE
+            << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE << CROSS_SINGLE
+            << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE << HORIZONTAL_SINGLE;
             if (i < END_OF_BOARD - 1)
             {
                 std::cout << CROSS_HSVD;
@@ -87,9 +87,9 @@ void Printer::printBottom()
     std::cout << BOTTOM_LEFT_CORNER;
     for (int i = 0; i < END_OF_BOARD; i++)
     {
-        std::cout << HORIZONTAL_DOUBLE
-        << UDT_SINGLE << HORIZONTAL_DOUBLE
-        << UDT_SINGLE << HORIZONTAL_DOUBLE;
+        std::cout << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE
+        << UDT_SINGLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE
+        << UDT_SINGLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE << HORIZONTAL_DOUBLE;
         if (i < END_OF_BOARD - 1)
         {
            std::cout << UDT_DOUBLE;
@@ -114,13 +114,22 @@ void Printer::printSudoku(Board* pboard)
 	    {
             cout << VERTICAL_DOUBLE;
             for(int n = 0; n < 8; n++){
-                cout << cells[(3*i+j)*9 + n].getValue();
+                if(cells[(3*i+j)*9 + n].getValue() == 0)
+                    cout << "   ";
+                else
+                    cout << " " << cells[(3*i+j)*9 + n].getValue() << " ";
+
                 if((n + 1) % 3 != 0)
                     cout << VERTICAL_SINGLE;
                 else
                     cout << VERTICAL_DOUBLE;
             }
-            cout << cells[(3*i+j)*9 + 8].getValue() << VERTICAL_DOUBLE << endl;
+
+            if(cells[(3*i+j)*9 + 8].getValue() == 0)
+                cout << "   " << VERTICAL_DOUBLE << endl;
+            else
+                cout << " " << cells[(3*i+j)*9 + 8].getValue() << " " << VERTICAL_DOUBLE << endl;
+
             if(j == 2)
             {
                 if(i != 2)

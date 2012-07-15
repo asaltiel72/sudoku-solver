@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="board.txt" />
 		<Unit filename="include\Board.h" />
 		<Unit filename="include\Entry.h" />
 		<Unit filename="include\Printer.h" />
