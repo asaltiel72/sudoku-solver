@@ -5,12 +5,18 @@ using namespace std;
 
 int main()
 {
-    Board sudoku("board.txt");
+    Board sudoku("hard.txt");
     sudoku.initializeBoard();
     Printer::printSudoku(&sudoku);
-
-    sudoku.processCell(4, 3);
-
+    sudoku.processBoard();
+    Printer::printSudoku(&sudoku);
+    sudoku.processBoard();
+    Printer::printSudoku(&sudoku);
+    sudoku.processBoard();
+    Printer::printSudoku(&sudoku);
+    sudoku.processBoard();
+    Printer::printSudoku(&sudoku);
+    sudoku.printOptions();
 	return 0;
 }
 

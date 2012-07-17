@@ -1,5 +1,6 @@
 #include "../include/Entry.h"
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 Entry::Entry(int pvalue, int prow, int pcolumn, int pblock)
@@ -59,6 +60,6 @@ void Entry::eliminate(int choice)
 void Entry::printOptions()
 {
     cout << "Row:" << row << " Column: " << column << " Options: ";
-    for_each(options.begin(), options.end(), [&](int x){cout << x;});
+    for_each(options.begin(), options.end(), [](int x){cout << x;});
     cout << endl;
 }
