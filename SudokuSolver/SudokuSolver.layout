@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="board.txt" open="1" top="1" tabpos="7">
+	<File name="board.txt" open="1" top="0" tabpos="7">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="include\Board.h" open="1" top="0" tabpos="5">
-		<Cursor position="734" topLine="0" />
+		<Cursor position="503" topLine="0" />
 	</File>
 	<File name="include\Entry.h" open="1" top="0" tabpos="2">
-		<Cursor position="403" topLine="0" />
+		<Cursor position="294" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="215" topLine="0" />
+		<Cursor position="229" topLine="0" />
 	</File>
-	<File name="src\Board.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="1271" topLine="33" />
+	<File name="src\Board.cpp" open="1" top="1" tabpos="4">
+		<Cursor position="2512" topLine="75" />
 	</File>
 	<File name="src\Entry.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="165" topLine="0" />
+		<Cursor position="297" topLine="0" />
 	</File>
 	<File name="src\Printer.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="3642" topLine="101" />
+		<Cursor position="3461" topLine="101" />
 	</File>
 </CodeBlocks_layout_file>

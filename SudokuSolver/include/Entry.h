@@ -9,6 +9,9 @@ class Entry
         virtual ~Entry();
         Entry(const Entry& other);
         Entry& operator=(const Entry& other);
+
+        void eliminate(int choice);
+
         const int getRow() { return row; }
         const int getValue() { return value; }
         const int getColumn() { return column; }
