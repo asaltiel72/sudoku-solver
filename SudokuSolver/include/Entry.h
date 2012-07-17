@@ -16,6 +16,8 @@ class Entry
         const int getValue() { return value; }
         const int getColumn() { return column; }
         const int getBlock() { return block; }
+        std::vector<int> getOptions(){return options;}
+        void printOptions();
     protected:
     private:
         int value;

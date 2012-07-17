@@ -1,4 +1,6 @@
 #include "../include/Entry.h"
+#include <algorithm>
+using namespace std;
 
 Entry::Entry(int pvalue, int prow, int pcolumn, int pblock)
     : value(pvalue),
@@ -48,4 +50,15 @@ void Entry::eliminate(int choice)
             break;
         }
     }
+    if(options.size() == 1)
+    {
+        value = options.at(0);
+    }
+}
+
+void Entry::printOptions()
+{
+    cout << "Row:" << row << " Column: " << column << " Options: ";
+    for_each(options.begin(), options.end(), [&](int x){cout << x;});
+    cout << endl;
 }

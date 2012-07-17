@@ -9,7 +9,7 @@ int main()
     sudoku.initializeBoard();
     Printer::printSudoku(&sudoku);
 
-    sudoku.processCell(3, 2);
+    sudoku.processCell(4, 3);
 
 	return 0;
 }

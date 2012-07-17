@@ -82,7 +82,7 @@ bool Board::processCell(int pr, int pc)
         if(&cells[pr*9 + pc] != &rows[pr][i].get())
         {
             cells[pr*9 + pc].eliminate(rows[pr][i].get().getValue());
-            cout << rows[pr][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
+            //cout << rows[pr][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
         }
     }
 
@@ -93,7 +93,7 @@ bool Board::processCell(int pr, int pc)
         if(&cells[pr*9 + pc] != &columns[pc][i].get())
         {
             cells[pr*9 + pc].eliminate(columns[pc][i].get().getValue());
-            cout << columns[pc][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
+            //cout << columns[pc][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
         }
     }
 
@@ -105,9 +105,10 @@ bool Board::processCell(int pr, int pc)
         if(&cells[pr*9 + pc] != &blocks[blockNumber][i].get())
         {
             cells[pr*9 + pc].eliminate(blocks[blockNumber][i].get().getValue());
-            cout << blocks[blockNumber][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
+            //cout << blocks[blockNumber][i].get().getValue() << " eliminated from [" << pr << ", " << pc << "]" << endl;
         }
     }
-
+    for_each(cells.begin(), cells.end(), [](Entry& x){x.printOptions();});
+    cout << endl;
     return false;
 }
