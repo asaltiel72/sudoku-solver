@@ -73,9 +73,11 @@ bool Board::initializeBoard()
     return true;
 }
 
-void Board::processBoard()
+int Board::processBoard()
 {
-    for_each(cells.begin(), cells.end(), [&](Entry& x){eliminate(x);});
+    int num_changed = 0;
+    for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
+    return num_changed;
 }
 
 void Board::printOptions()
@@ -83,9 +85,11 @@ void Board::printOptions()
     for_each(cells.begin(), cells.end(), [](Entry& x){x.printOptions();});
 }
 
-void Board::eliminate(Entry& entry)
+int Board::eliminate(Entry& entry)
 {
-    for_each(rows[entry.getRow()].begin(), rows[entry.getRow()].end(), [&](Entry& s){s.eliminate(entry.getValue());});
-    for_each(columns[entry.getColumn()].begin(), columns[entry.getColumn()].end(), [&](Entry& s){s.eliminate(entry.getValue());});
-    for_each(blocks[entry.getBlock()].begin(), blocks[entry.getBlock()].end(), [&](Entry& s){s.eliminate(entry.getValue());});
+    int chg_cnt = 0;
+    for_each(rows[entry.getRow()].begin(), rows[entry.getRow()].end(), [&](Entry& s){chg_cnt += s.eliminate(entry.getValue());});
+    for_each(columns[entry.getColumn()].begin(), columns[entry.getColumn()].end(), [&](Entry& s){chg_cnt += s.eliminate(entry.getValue());});
+    for_each(blocks[entry.getBlock()].begin(), blocks[entry.getBlock()].end(), [&](Entry& s){chg_cnt += s.eliminate(entry.getValue());});
+    return chg_cnt;
 }

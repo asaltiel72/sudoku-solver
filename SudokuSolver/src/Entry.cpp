@@ -41,13 +41,15 @@ Entry& Entry::operator=(const Entry& rhs)
     return *this;
 }
 
-void Entry::eliminate(int choice)
+int Entry::eliminate(int choice)
 {
+    int eliminatedSomething = 0;
     for(int i = 0; i <  options.size(); i++)
     {
         if(options[i] == choice)
         {
             options.erase(options.begin() + i);
+            eliminatedSomething++;
             break;
         }
     }
@@ -55,6 +57,7 @@ void Entry::eliminate(int choice)
     {
         value = options.at(0);
     }
+    return eliminatedSomething;
 }
 
 void Entry::printOptions()

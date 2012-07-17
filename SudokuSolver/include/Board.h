@@ -19,8 +19,8 @@ class Board
         std::string& getOrigFile() { return orig_file; }
         bool isSolved() { return solved; }
         std::vector<Entry> getBoard() { return cells; }
-        void processBoard();
-        void eliminate(Entry& entry);
+        int processBoard();
+        int eliminate(Entry& entry);
         void printOptions();
     protected:
     private:
