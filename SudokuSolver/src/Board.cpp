@@ -77,6 +77,69 @@ int Board::processBoard()
 {
     int num_changed = 0;
     for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
+    if (num_changed == 0)
+    {
+        vector<int> test = {0,0,0,0,0,0,0,0,0,0};
+        int i = 0;
+        int k = 0;
+        vector<int> temp;
+        while(i < 9)
+        {
+            temp = test;
+            for_each(blocks[i].begin(), blocks[i].end(), [&temp](Entry& x)
+                     {
+                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
+                     });
+            for(int j = 0; j < temp.size(); j++)
+            {
+                if(temp.at(j) == 1)
+                {
+                    k = j + 1;
+                }
+            }
+            if (k != 0)
+            {
+                for_each(blocks[i].begin(), blocks[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
+                k = 0;
+            }
+            temp = test;
+            for_each(rows[i].begin(), rows[i].end(), [&temp](Entry& x)
+                     {
+                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
+                     });
+            for(int j = 0; j < temp.size(); j++)
+            {
+                if(temp.at(j) == 1)
+                {
+                    k = j + 1;
+                }
+            }
+            if (k != 0)
+            {
+                for_each(rows[i].begin(), rows[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
+                k = 0;
+            }
+            temp = test;
+            for_each(columns[i].begin(), columns[i].end(), [&temp](Entry& x)
+                     {
+                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
+                     });
+            for(int j = 0; j < temp.size(); j++)
+            {
+                if(temp.at(j) == 1)
+                {
+                    k = j + 1;
+                }
+            }
+            if (k != 0)
+            {
+                for_each(columns[i].begin(), columns[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
+                k = 0;
+            }
+            i++;
+        }
+        for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
+    }
     return num_changed;
 }
 

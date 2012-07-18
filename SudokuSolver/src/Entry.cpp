@@ -66,3 +66,22 @@ void Entry::printOptions()
     for_each(options.begin(), options.end(), [](int x){cout << x;});
     cout << endl;
 }
+
+void Entry::setValue(int pvalue)
+{
+    value = pvalue;
+}
+
+bool Entry::contains(int pvalue)
+{
+    bool flag = false;
+    for(int i = 0; i < options.size(); i++)
+    {
+        if(options.at(i) == pvalue)
+        {
+            flag = true;
+        }
+    }
+    return flag;
+}
+

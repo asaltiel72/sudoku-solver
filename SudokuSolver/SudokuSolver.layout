@@ -8,18 +8,18 @@
 		<Cursor position="503" topLine="0" />
 	</File>
 	<File name="include\Entry.h" open="1" top="0" tabpos="2">
-		<Cursor position="294" topLine="0" />
+		<Cursor position="643" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="229" topLine="0" />
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="2164" topLine="33" />
 	</File>
-	<File name="src\Board.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="2512" topLine="75" />
+	<File name="src\Board.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="2277" topLine="59" />
 	</File>
 	<File name="src\Entry.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="297" topLine="0" />
+		<Cursor position="1451" topLine="35" />
 	</File>
 	<File name="src\Printer.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="3461" topLine="101" />
+		<Cursor position="3461" topLine="93" />
 	</File>
 </CodeBlocks_layout_file>

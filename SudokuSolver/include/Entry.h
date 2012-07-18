@@ -18,6 +18,8 @@ class Entry
         const int getBlock() { return block; }
         std::vector<int> getOptions(){return options;}
         void printOptions();
+        void setValue(int pvalue);
+        bool contains(int pvalue);
     protected:
     private:
         int value;
