@@ -138,7 +138,7 @@ int Board::processBoard()
             }
             i++;
         }
-        for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
+        //for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
     }
     return num_changed;
 }

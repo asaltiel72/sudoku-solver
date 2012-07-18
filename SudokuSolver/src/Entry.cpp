@@ -70,6 +70,7 @@ void Entry::printOptions()
 void Entry::setValue(int pvalue)
 {
     value = pvalue;
+    options = {};
 }
 
 bool Entry::contains(int pvalue)

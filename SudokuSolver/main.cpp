@@ -21,7 +21,17 @@ int main()
     Printer::printSudoku(&sudoku);
     cout << sudoku.processBoard() << endl;
     Printer::printSudoku(&sudoku);
-    sudoku.printOptions();
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    //sudoku.printOptions();
 	return 0;
 }
 
