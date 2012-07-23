@@ -25,10 +25,13 @@ class Board
         bool isSolved();
         void setValue(int row, int column, int value);
         int processSector(std::vector<std::vector<std::reference_wrapper<Entry>>> sector);
+        void guess(int index);
+        bool canBeSolved();
     protected:
     private:
         std::string orig_file;
         bool checkSector(std::vector<std::vector<std::reference_wrapper<Entry>>> sector);
+        bool checkSector2(std::vector<std::vector<std::reference_wrapper<Entry>>> sector);
         std::vector<Entry> cells;
         std::vector<std::vector<std::reference_wrapper<Entry>>> rows;      //# = row
         std::vector<std::vector<std::reference_wrapper<Entry>>> columns;   //# = col

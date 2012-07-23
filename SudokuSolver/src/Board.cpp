@@ -135,11 +135,11 @@ int Board::eliminate(Entry& entry)
 
 bool Board::checkBoard()
 {
-    if(!checkSector(rows) || !checkSector(columns) || !checkSector(blocks))
+    if(checkSector(rows) && checkSector(columns) && checkSector(blocks))
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool Board::isSolved()
@@ -155,8 +155,9 @@ bool Board::checkSector(vector<vector<reference_wrapper<Entry>>> sector)
     vector<int> temp;
     for (int i = 0; i < sector.size(); i++)
     {
+        temp.clear();
         temp = checkVector;
-        for_each(sector[i].begin(), sector[i].end(), [&temp](Entry& cell){temp[cell.getValue()]+= 1;});
+        for_each(sector[i].begin(), sector[i].end(), [&temp](Entry& cell){temp[cell.getValue() - 1]+= 1;});
         for(int j = 0; j < temp.size(); j++)
         {
             if(temp.at(j) != 1)
@@ -171,4 +172,52 @@ bool Board::checkSector(vector<vector<reference_wrapper<Entry>>> sector)
 void Board::setValue(int row, int column, int value)
 {
     cells[(row*9) + column].setValue(value);
+}
+
+void Board::guess(int index)
+{
+    for(int i = 0; i < cells.size(); i++)
+    {
+        if(cells[i].getOptions().size() == 2)
+        {
+            cells[i].setValue(cells[i].getOptions().at(index));
+            break;
+        }
+    }
+}
+
+bool Board::canBeSolved()
+{
+    if(checkSector2(rows) && checkSector2(columns) && checkSector2(blocks))
+    {
+        return true;
+    }
+    return false;
+}
+
+bool Board::checkSector2(vector<vector<reference_wrapper<Entry>>> sector)
+{
+    vector<int> checkVector(9,0);
+    vector<int> temp;
+    for (int i = 0; i < sector.size(); i++)
+    {
+        temp.clear();
+        temp = checkVector;
+        for_each(sector[i].begin(), sector[i].end(), [&temp](Entry& cell){if(cell.getValue() != 0)temp[cell.getValue() - 1]+= 1;});
+        for(int j = 0; j < temp.size(); j++)
+        {
+            if(temp.at(j) == 2)
+            {
+                for(int k = 0; k < temp.size(); k++)
+                {
+                  //  cout << temp[k];
+                }
+                //cout << "position " << j + 1 << endl;
+                //cout << "how many found " << temp.at(j) << endl;
+                //cout << cells[i].getRow() << cells[i].getColumn();
+                return false;
+            }
+        }
+    }
+    return true;
 }

@@ -5,19 +5,19 @@
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="include\Board.h" open="1" top="0" tabpos="5">
-		<Cursor position="503" topLine="0" />
+		<Cursor position="1012" topLine="6" />
 	</File>
 	<File name="include\Entry.h" open="1" top="0" tabpos="2">
 		<Cursor position="643" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1104" topLine="0" />
+		<Cursor position="1379" topLine="1" />
 	</File>
 	<File name="src\Board.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="4060" topLine="68" />
+		<Cursor position="5780" topLine="169" />
 	</File>
 	<File name="src\Entry.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1463" topLine="35" />
+		<Cursor position="1463" topLine="3" />
 	</File>
 	<File name="src\Printer.cpp" open="1" top="0" tabpos="6">
 		<Cursor position="3461" topLine="93" />
