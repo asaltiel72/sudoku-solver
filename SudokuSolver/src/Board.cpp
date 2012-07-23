@@ -10,7 +10,6 @@
 using namespace std;
 Board::Board(std::string filename) :
     orig_file(filename),
-    solved(false),
     rows(9),
     columns(9),
     blocks(9)
@@ -115,6 +114,7 @@ int Board::processBoard()
         num_changed += processSector(rows);
         num_changed += processSector(columns);
         num_changed += processSector(blocks);
+
     }
     return num_changed;
 }
@@ -140,6 +140,13 @@ bool Board::checkBoard()
         return false;
     }
     return true;
+}
+
+bool Board::isSolved()
+{
+    bool solved = true;
+    for_each(cells.begin(), cells.end(), [&](Entry& x){ if(x.getValue() == 0) solved=false;});
+    return solved;
 }
 
 bool Board::checkSector(vector<vector<reference_wrapper<Entry>>> sector)

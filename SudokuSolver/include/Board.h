@@ -17,18 +17,17 @@ class Board
         bool initializeBoard();
 
         std::string& getOrigFile() { return orig_file; }
-        bool isSolved() { return solved; }
         std::vector<Entry> getBoard() { return cells; }
         int processBoard();
         int eliminate(Entry& entry);
         void printOptions();
         bool checkBoard();
+        bool isSolved();
         void setValue(int row, int column, int value);
         int processSector(std::vector<std::vector<std::reference_wrapper<Entry>>> sector);
     protected:
     private:
         std::string orig_file;
-        bool solved;
         bool checkSector(std::vector<std::vector<std::reference_wrapper<Entry>>> sector);
         std::vector<Entry> cells;
         std::vector<std::vector<std::reference_wrapper<Entry>>> rows;      //# = row

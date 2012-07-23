@@ -9,23 +9,20 @@ int main()
     Board sudoku("hard.txt");
     sudoku.initializeBoard();
     Board copy = sudoku;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    //sudoku.setValue(0,5,4);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
+    int runs = 0;
+    while(sudoku.processBoard() > 0){
+        runs++;
+    }
+    cout << "Starting Board" << endl;
     Printer::printSudoku(&copy);
+    if(sudoku.isSolved())
+    {
+        cout << "Solution (" << runs << " runs):" << endl;
+    } else {
+        cout << "Processed Board (as far as I could go..." << runs << " runs)" << endl;
+    }
+    Printer::printSudoku(&sudoku);
+    //sudoku.printOptions();
 	return 0;
 }
 
