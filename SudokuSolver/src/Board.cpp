@@ -73,72 +73,48 @@ bool Board::initializeBoard()
     return true;
 }
 
+int Board::processSector(vector<vector<reference_wrapper<Entry>>> sector)
+{
+    vector<int> test = {0,0,0,0,0,0,0,0,0,0};
+    vector<int> temp;
+    int position = 0;
+    int rvalue = 0;
+    int k;
+    while(position < 9)
+    {
+        temp = test;
+        for_each(sector[position].begin(), sector[position].end(), [&temp](Entry& x)
+                 {
+                     if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
+                 });
+        for(int j = 0; j < temp.size(); j++)
+        {
+            if(temp.at(j) == 1)
+            {
+                k = j + 1;
+            }
+        }
+        if (k != 0)
+        {
+            for_each(sector[position].begin(), sector[position].end(), [&](Entry& z){if(z.contains(k))
+                     {z.setValue(k);
+                        rvalue += eliminate(z);}});
+            k = 0;
+        }
+        position++;
+    }
+    return rvalue;
+}
+
 int Board::processBoard()
 {
     int num_changed = 0;
     for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
     if (num_changed == 0)
     {
-        vector<int> test = {0,0,0,0,0,0,0,0,0,0};
-        int i = 0;
-        int k = 0;
-        vector<int> temp;
-        while(i < 9)
-        {
-            temp = test;
-            for_each(blocks[i].begin(), blocks[i].end(), [&temp](Entry& x)
-                     {
-                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
-                     });
-            for(int j = 0; j < temp.size(); j++)
-            {
-                if(temp.at(j) == 1)
-                {
-                    k = j + 1;
-                }
-            }
-            if (k != 0)
-            {
-                for_each(blocks[i].begin(), blocks[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
-                k = 0;
-            }
-            temp = test;
-            for_each(rows[i].begin(), rows[i].end(), [&temp](Entry& x)
-                     {
-                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
-                     });
-            for(int j = 0; j < temp.size(); j++)
-            {
-                if(temp.at(j) == 1)
-                {
-                    k = j + 1;
-                }
-            }
-            if (k != 0)
-            {
-                for_each(rows[i].begin(), rows[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
-                k = 0;
-            }
-            temp = test;
-            for_each(columns[i].begin(), columns[i].end(), [&temp](Entry& x)
-                     {
-                         if(x.getOptions().size() != 0){for(int q = 0; q < x.getOptions().size(); q++){temp[x.getOptions().at(q) - 1]++;}}
-                     });
-            for(int j = 0; j < temp.size(); j++)
-            {
-                if(temp.at(j) == 1)
-                {
-                    k = j + 1;
-                }
-            }
-            if (k != 0)
-            {
-                for_each(columns[i].begin(), columns[i].end(), [&k](Entry& z){if(z.contains(k))z.setValue(k);});
-                k = 0;
-            }
-            i++;
-        }
-        //for_each(cells.begin(), cells.end(), [&](Entry& x){num_changed += eliminate(x);});
+        num_changed += processSector(rows);
+        num_changed += processSector(columns);
+        num_changed += processSector(blocks);
     }
     return num_changed;
 }
@@ -155,4 +131,37 @@ int Board::eliminate(Entry& entry)
     for_each(columns[entry.getColumn()].begin(), columns[entry.getColumn()].end(), [&](Entry& s){chg_cnt += s.eliminate(entry.getValue());});
     for_each(blocks[entry.getBlock()].begin(), blocks[entry.getBlock()].end(), [&](Entry& s){chg_cnt += s.eliminate(entry.getValue());});
     return chg_cnt;
+}
+
+bool Board::checkBoard()
+{
+    if(!checkSector(rows) || !checkSector(columns) || !checkSector(blocks))
+    {
+        return false;
+    }
+    return true;
+}
+
+bool Board::checkSector(vector<vector<reference_wrapper<Entry>>> sector)
+{
+    vector<int> checkVector(9,0);
+    vector<int> temp;
+    for (int i = 0; i < sector.size(); i++)
+    {
+        temp = checkVector;
+        for_each(sector[i].begin(), sector[i].end(), [&temp](Entry& cell){temp[cell.getValue()]+= 1;});
+        for(int j = 0; j < temp.size(); j++)
+        {
+            if(temp.at(j) != 1)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+void Board::setValue(int row, int column, int value)
+{
+    cells[(row*9) + column].setValue(value);
 }

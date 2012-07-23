@@ -8,7 +8,15 @@ int main()
 {
     Board sudoku("hard.txt");
     sudoku.initializeBoard();
+    Board copy = sudoku;
     Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    cout << sudoku.processBoard() << endl;
+    Printer::printSudoku(&sudoku);
+    //sudoku.setValue(0,5,4);
     cout << sudoku.processBoard() << endl;
     Printer::printSudoku(&sudoku);
     cout << sudoku.processBoard() << endl;
@@ -17,21 +25,7 @@ int main()
     Printer::printSudoku(&sudoku);
     cout << sudoku.processBoard() << endl;
     Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    cout << sudoku.processBoard() << endl;
-    Printer::printSudoku(&sudoku);
-    //sudoku.printOptions();
+    Printer::printSudoku(&copy);
 	return 0;
 }
 
