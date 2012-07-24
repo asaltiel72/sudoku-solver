@@ -26,35 +26,14 @@ bool solve(Board& pboard)
 }
 int main()
 {
-    //Board sudoku("hard.txt");
-    //sudoku.initializeBoard();
-    //Board copy = sudoku;
-    //int runs = 0;
-    //while(sudoku.processBoard() > 0){
-    //    runs++;
-    //}
-    //cout << "Starting Board" << endl;
-    //Printer::printSudoku(&copy);
-    //if(sudoku.isSolved())
-    //{
-    //    cout << "Solution (" << runs << " runs):" << endl;
-    //} else {
-    //    cout << "Processed Board (as far as I could go..." << runs << " runs)" << endl;
-    //}
-    //Printer::printSudoku(&sudoku);
-    //sudoku.printOptions();
     Board sudoku("hard.txt");
     sudoku.initializeBoard();
-    //sudoku.processBoard();
-    //sudoku.processBoard();
-    //sudoku.printOptions();
-    //Printer::printSudoku(&sudoku);
-    //sudoku.guess(0);
-    //Printer::printSudoku(&sudoku);
-    solve(sudoku);
+    cout << "Original Sudoku Board:" << endl;
     Printer::printSudoku(&sudoku);
-    //sudoku.printOptions();
-    //cout << boolalpha << sudoku.canBeSolved();
+    cout << endl << endl;
+    solve(sudoku);
+    cout << "Final Board (After Processing):" << endl;
+    Printer::printSudoku(&sudoku);
 	return 0;
 }
 

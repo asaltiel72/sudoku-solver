@@ -33,7 +33,6 @@ bool Board::initializeBoard()
     while (filestr.good())
     {
         getline(filestr, line);
-        cout << line << endl;
         if (line != "")
         {
             for(int i = 0; i < 9; i++)
