@@ -26,13 +26,15 @@ bool solve(Board& pboard)
 }
 int main()
 {
-    Board sudoku("hard.txt");
+    Board sudoku("hard2.txt");
     sudoku.initializeBoard();
     cout << "Original Sudoku Board:" << endl;
     Printer::printSudoku(&sudoku);
     cout << endl << endl;
     solve(sudoku);
-    cout << "Final Board (After Processing):" << endl;
+    cout << "Final Board (After Processing) -- ";
+    if(sudoku.checkBoard()) cout << "Valid Solution!!!" << endl;
+    else cout << "Invalid Solution...crap" << endl;
     Printer::printSudoku(&sudoku);
 	return 0;
 }

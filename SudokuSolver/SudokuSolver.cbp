@@ -33,10 +33,14 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="board.txt" />
+		<Unit filename="hard.txt" />
+		<Unit filename="hard2.txt" />
+		<Unit filename="impossible.txt" />
 		<Unit filename="include\Board.h" />
 		<Unit filename="include\Entry.h" />
 		<Unit filename="include\Printer.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="medium.txt" />
 		<Unit filename="src\Board.cpp" />
 		<Unit filename="src\Entry.cpp" />
 		<Unit filename="src\Printer.cpp" />
