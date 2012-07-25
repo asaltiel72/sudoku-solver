@@ -26,7 +26,7 @@ bool solve(Board& pboard)
 }
 int main()
 {
-    Board sudoku("hard2.txt");
+    Board sudoku("expert.txt");
     sudoku.initializeBoard();
     cout << "Original Sudoku Board:" << endl;
     Printer::printSudoku(&sudoku);
